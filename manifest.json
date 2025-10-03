@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Grade Masker",
+  "version": "1.0",
+  "description": "Replaces numeric grades with Passed/Failed",
+  "permissions": ["activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["*://aulavirtual.tecnocampus.cat/grade/report/user/index.php*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
