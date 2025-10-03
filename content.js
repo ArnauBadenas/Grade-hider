@@ -7,17 +7,23 @@ gradeCells.forEach(cell => {
 
     // Only replace if it's a number
     if (!isNaN(value)) {
-        // store original grade for hover
-        cell.dataset.originalGrade = text;
-        cell.title = `Original grade: ${text}`; // shows tooltip on hover
-
-        // show Passed/Failed by default
-        cell.textContent = value >= 50 ? "Passed" : "Failed"; // threshold 50
+        cell.dataset.originalGrade = text;   // store original grade
+        cell.textContent = value >= 50 ? "Passed" : "Failed";
         cell.style.fontWeight = "bold";
         cell.style.color = value >= 50 ? "green" : "red";
+
+        // Show original grade on hover
+        cell.addEventListener('mouseenter', () => {
+            cell.textContent = cell.dataset.originalGrade;
+            cell.style.color = "black";      // optional: show as normal text
+        });
+
+        cell.addEventListener('mouseleave', () => {
+            cell.textContent = value >= 50 ? "Passed" : "Failed";
+            cell.style.color = value >= 50 ? "green" : "red";
+        });
+
     } else {
         cell.textContent = "Not graded";
-        cell.dataset.originalGrade = "-";
-        cell.title = "Not graded";
     }
 });
