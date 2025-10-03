@@ -6,7 +6,7 @@
   "permissions": ["activeTab", "scripting"],
   "content_scripts": [
     {
-      "matches": ["*://aulavirtual.tecnocampus.cat/grade/report/user/index.php*", "file:///C:/Users/Arnau/grade-hider/test.html"],
+      "matches": ["*://aulavirtual.tecnocampus.cat/grade/report/user/index.php*"],
       "js": ["content.js"],
       "css": ["styles.css"]
     }
